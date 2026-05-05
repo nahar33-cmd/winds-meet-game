@@ -33,6 +33,7 @@ cd winds-meet-game
   - PlayerController
   - CharacterStats
   - AdvancedCombatSystem
+  - SkillTree
   - HUD (attach to Canvas instead)
 
 ### 6. Add Camera
@@ -56,7 +57,16 @@ cd winds-meet-game
 - Position Y: -0.5
 - Tag as "Ground"
 
-### 9. Add Menu (Optional)
+### 9. Add Skill Tree UI (New!)
+- Create a new Canvas for Skill Tree
+- Right-click on Canvas → UI → Panel → Name: "SkillTreePanel"
+- Add Text for "Skill Points"
+- Add Text for "Description"
+- Create a Scroll View for skill buttons
+- Attach SkillTreeUI script to Canvas
+- Assign references in the script
+
+### 10. Add Menu (Optional)
 - Create UI Buttons for Start/Pause/Quit
 - Attach MainMenu script to a GameObject
 - Assign buttons to the script fields
@@ -68,6 +78,7 @@ cd winds-meet-game
 - **Left Mouse / E** - Light Attack
 - **Right Mouse** - Heavy Attack
 - **Q** - Special Attack
+- **T** - Open/Close Skill Tree (NEW!)
 - **ESC** - Pause/Menu
 
 ## What Each Script Does
@@ -77,6 +88,10 @@ cd winds-meet-game
 - **CharacterStats.cs** - Health and stamina
 - **AdvancedCombatSystem.cs** - Combat with combos
 - **CameraController.cs** - Smooth camera follow
+
+### Skill System (NEW!)
+- **SkillTree.cs** - Manages all skills and levels
+- **SkillTreeUI.cs** - Displays skill tree interface
 
 ### Enemy Scripts
 - **AdvancedEnemy.cs** - Different enemy types
@@ -102,6 +117,22 @@ cd winds-meet-game
 - Heavy attacks (slow, strong)
 - Special attacks (very powerful)
 - Combo system (damage increases per hit)
+
+✅ **Skill Tree System (NEW!)**
+- 8 different skills to upgrade
+- Level up skills with skill points
+- Different costs for different skills
+- Max level of 5 for each skill
+
+**Skills Include:**
+- Strength Boost - More damage
+- Defense Boost - Less damage taken
+- Speed Boost - Faster movement
+- Stamina Pool - More stamina
+- Critical Strike - Chance for 2x damage
+- Health Pool - More health
+- Combo Mastery - Better combos
+- Acrobatics - Higher jumps
 
 ✅ **Enemy Types**
 - Weak (green) - Easy
@@ -135,7 +166,8 @@ cd winds-meet-game
 4. Create weapons with different stats
 5. Add boss battles
 6. Add quest system
+7. Implement skill effects (apply bonuses to stats)
 
 ---
 
-**You now have a full playable game with all major systems!** 🎮
+**You now have a full playable game with skill tree progression!** 🎮
