@@ -19,78 +19,123 @@ cd winds-meet-game
 - Create → Scene → Name: "Game"
 - Save it
 
-### 4. Add Player
+### 4. Setup Canvas (for UI/HUD)
+- Right-click in Hierarchy → UI → Canvas
+- This will automatically create EventSystem
+
+### 5. Add Player
 - Right-click in Hierarchy → 3D Object → Capsule
 - Name: "Player"
+- Position: (0, 1, 0)
 - Add Rigidbody component
 - Tag as "Player"
-- Drag PlayerController script onto it
-- Drag CharacterStats script onto it
-- Drag CombatSystem script onto it
+- Attach these scripts:
+  - PlayerController
+  - CharacterStats
+  - AdvancedCombatSystem
+  - HUD (attach to Canvas instead)
 
-### 5. Add Enemy
+### 6. Add Camera
+- Right-click in Hierarchy → 3D Object → Cube
+- Name: "CameraRig"
+- Position: (0, 0, 0)
+- Add CameraController script
+- Assign Player transform in the script
+- Delete the cube's renderer (we don't see it)
+
+### 7. Add Enemies
 - Right-click in Hierarchy → 3D Object → Capsule
 - Name: "Enemy"
-- Change color (select material)
-- Tag as "Enemy"
-- Drag Enemy script onto it
-- Position away from player
+- Position: (5, 1, 0)
+- Add AdvancedEnemy script
+- Color it differently (material)
 
-### 6. Add Ground
+### 8. Add Ground
 - Right-click in Hierarchy → 3D Object → Plane
-- Scale to (10, 1, 10)
-- Position Y to -1
+- Scale: (20, 1, 20)
+- Position Y: -0.5
 - Tag as "Ground"
-- Add collider
 
-### 7. Test
-- Press Play
-- Move with WASD
-- Sprint with Shift
-- Jump with Space
-- Attack with Mouse Click or E
+### 9. Add Menu (Optional)
+- Create UI Buttons for Start/Pause/Quit
+- Attach MainMenu script to a GameObject
+- Assign buttons to the script fields
 
 ## Controls
 - **WASD** - Move
 - **Shift** - Sprint
 - **Space** - Jump
-- **Mouse Click / E** - Attack
+- **Left Mouse / E** - Light Attack
+- **Right Mouse** - Heavy Attack
+- **Q** - Special Attack
+- **ESC** - Pause/Menu
 
-## What the Code Does
+## What Each Script Does
 
-### PlayerController.cs
-- Handles movement input
-- Controls jumping
-- Manages sprinting
+### Player Scripts
+- **PlayerController.cs** - Movement and jumping
+- **CharacterStats.cs** - Health and stamina
+- **AdvancedCombatSystem.cs** - Combat with combos
+- **CameraController.cs** - Smooth camera follow
 
-### CharacterStats.cs
-- Tracks health and stamina
-- Handles damage
-- Regenerates stamina
+### Enemy Scripts
+- **AdvancedEnemy.cs** - Different enemy types
+- **EnemySpawner.cs** - Spawns waves of enemies
 
-### CombatSystem.cs
-- Player attacks
-- Uses stamina for attacks
-- Detects hit enemies
+### World Scripts
+- **Item.cs** - Pickupable items and weapons
 
-### Enemy.cs
-- Chases player
-- Attacks when close
-- Takes damage
-- Dies when health = 0
+### UI/Audio Scripts
+- **AudioManager.cs** - Sound effects and music
+- **MainMenu.cs** - Start/pause/quit menu
+- **HUD.cs** - Health and stamina bars
 
-### HUD.cs
-- Shows health bar
-- Shows stamina bar
-- Displays numbers
+## Advanced Features Included
+
+✅ **Camera System**
+- Smooth follow camera
+- Mouse look (optional)
+- Adjustable distance and height
+
+✅ **Combat System**
+- Light attacks (quick, weak)
+- Heavy attacks (slow, strong)
+- Special attacks (very powerful)
+- Combo system (damage increases per hit)
+
+✅ **Enemy Types**
+- Weak (green) - Easy
+- Normal (yellow) - Medium
+- Strong (red) - Hard
+- Boss (magenta) - Very Hard
+
+✅ **Items & Weapons**
+- Health pickups
+- Stamina pickups
+- Equipment pickups
+
+✅ **Audio System**
+- Background music
+- Attack sounds
+- Hit sounds
+- Death sounds
+- Item pickup sounds
+
+✅ **Menu System**
+- Start menu
+- Pause/Resume
+- Quit game
+- ESC to pause
 
 ## Next Steps
 
-What would you like to add?
-1. Camera system (follow player)
-2. Better combat (combos)
-3. More enemies (waves)
-4. Items/Weapons
-5. Sound effects
-6. Game menu
+1. Add sound files to the AudioManager
+2. Create UI buttons for the menu
+3. Add more enemy types
+4. Create weapons with different stats
+5. Add boss battles
+6. Add quest system
 
+---
+
+**You now have a full playable game with all major systems!** 🎮
